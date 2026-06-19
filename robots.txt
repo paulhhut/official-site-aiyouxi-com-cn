@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://paulhhut.github.io/official-site-aiyouxi-com-cn/sitemap.xml
