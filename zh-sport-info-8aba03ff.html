@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>满冠体育 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f3ed;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            line-height: 1.7;
+            color: #2c2b28;
+            padding: 2.4rem 1.5rem;
+        }
+
+        .page-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            background: #fcf9f5;
+            border-radius: 28px;
+            padding: 2.8rem 2.5rem 3.2rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #2f2d2a;
+            border-left: 5px solid #b6a28d;
+            padding-left: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro-block {
+            margin-bottom: 2.6rem;
+        }
+
+        .intro-block p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .highlight-box {
+            background: #efeae2;
+            border-radius: 18px;
+            padding: 1.6rem 2rem;
+            margin: 2.2rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: "✦";
+            position: absolute;
+            left: -0.6rem;
+            top: -0.6rem;
+            font-size: 1.8rem;
+            color: #9a8878;
+            background: #fcf9f5;
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 2px #e4dbd0;
+        }
+
+        .highlight-box h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #3a3530;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-box li {
+            padding: 0.3rem 0 0.3rem 1.6rem;
+            position: relative;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .highlight-box li::before {
+            content: "·";
+            position: absolute;
+            left: 0.5rem;
+            color: #7f6e5e;
+            font-weight: bold;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem;
+            margin: 2rem 0 1.8rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.5rem 1.6rem;
+            border: 1px solid #e5ddd3;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #4d413a;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #54504a;
+            margin-bottom: 0;
+        }
+
+        .use-note {
+            background: #f0ece6;
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            margin: 2.4rem 0 1.8rem;
+        }
+
+        .use-note h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            color: #3d3832;
+        }
+
+        .use-note p {
+            font-size: 1rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .faq-brief {
+            border-top: 1px solid #e2d9cd;
+            padding-top: 1.8rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #3a3530;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #5b5650;
+            padding-left: 0.6rem;
+        }
+
+        .credible-tip {
+            background: #e5dcd1;
+            border-radius: 10px;
+            padding: 0.8rem 1.4rem;
+            font-size: 0.95rem;
+            color: #3b362f;
+            margin: 1.4rem 0;
+            display: inline-block;
+        }
+
+        .inline-link {
+            color: #6b5d4e;
+            text-decoration: none;
+            border-bottom: 1px solid #c2b4a4;
+            transition: border-color 0.15s, color 0.15s;
+            font-weight: 450;
+        }
+
+        .inline-link:hover {
+            color: #3a322b;
+            border-bottom-color: #7f6e5e;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e0d7ca;
+            margin: 2.4rem 0 0.8rem;
+        }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #85807a;
+            text-align: center;
+            margin-top: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .page-wrapper {
+                padding: 1.6rem 1.2rem 2rem;
+                border-radius: 20px;
+            }
+            h1 {
+                font-size: 1.7rem;
+                padding-left: 0.9rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .highlight-box {
+                padding: 1.2rem 1.4rem;
+            }
+            .use-note {
+                padding: 1.2rem 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <h1>满冠体育 · 站点简述</h1>
+
+    <div class="intro-block">
+        <p><a href="https://zh-sport-mg.com" class="inline-link">满冠体育</a> 是一个围绕体育资讯、赛事观察与运动知识整理的内容型站点。站内信息覆盖多个运动项目，以相对克制的篇幅提供赛事动态、规则解读以及训练相关的实用内容。整体风格偏向于信息梳理，而非即时快讯。</p>
+        <p>站点在排版上注重可读性，避免过度广告化或诱导式表达，适合对体育内容有稳定需求的访问者。以下从内容结构、特点与使用场景三个方面做简要说明。</p>
+    </div>
+
+    <div class="highlight-box">
+        <h2>内容亮点</h2>
+        <ul>
+            <li>分类清晰 —— 按运动类型与主题划分板块，便于按需查找。</li>
+            <li>表述平实 —— 不夸大不渲染，以说明性语言为主。</li>
+            <li>适读性强 —— 段落适中，关键信息多采用列表或短句呈现。</li>
+            <li>更新节奏稳定 —— 内容非高频刷屏，适合细读而非碎片刷新。</li>
+        </ul>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>赛事观察</h3>
+            <p>涵盖国内联赛、国际重大赛事的背景分析与赛果梳理，侧重逻辑而非情绪。</p>
+        </div>
+        <div class="feature-card">
+            <h3>规则与术语</h3>
+            <p>对部分运动项目的核心规则、判罚尺度、专用术语做解释性整理，降低观赛门槛。</p>
+        </div>
+        <div class="feature-card">
+            <h3>训练参考</h3>
+            <p>提供基础体能、技巧练习的方法介绍，适合业余爱好者和入门者了解框架。</p>
+        </div>
+        <div class="feature-card">
+            <h3>运动文化</h3>
+            <p>少量涉及运动历史、经典人物与战术演变，丰富阅读层次。</p>
+        </div>
+    </div>
+
+    <div class="use-note">
+        <h3>使用建议</h3>
+        <p>· 若你希望了解某项运动的基础知识或近期赛况，可直接浏览对应分类。</p>
+        <p>· 站点内容并非实时比分直播，更适合作为背景阅读或赛前赛后补充。</p>
+        <p>· 所有信息均以客观整理为原则，不包含博彩引导或虚假宣传。</p>
+        <p>· 建议将 <a href="https://zh-sport-mg.com" class="inline-link">满冠体育</a> 加入书签，便于后续查阅更新内容。</p>
+    </div>
+
+    <div class="faq-brief">
+        <div class="faq-item">
+            <div class="faq-q">Q: 站内信息是否可靠？</div>
+            <div class="faq-a">内容主要基于公开赛事数据、规则文本与运动科学常识进行汇编，每篇文章均标注参考来源（如有外部引用）。不编造数据，不发布未经核实的传闻。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 更新频率如何？</div>
+            <div class="faq-a">非日更模式。通常每周发布 2–4 篇内容，以专题或系列形式推进。重大赛事期间可能会适当增加整理类文章。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">Q: 是否需要注册或付费？</div>
+            <div class="faq-a">无需注册，所有内容均可直接阅读。站点未设置付费墙或会员体系，也不收集访客个人信息。</div>
+        </div>
+    </div>
+
+    <div class="credible-tip">
+        ⚖ 本页面为独立的介绍说明，不构成对站外任何服务或产品的担保。请根据自身判断使用内容。
+    </div>
+
+    <hr>
+    <div class="footer-note">
+        <a href="https://zh-sport-mg.com" class="inline-link">满冠体育</a> · 以平实语言整理体育内容
+    </div>
+</div>
+</body>
+</html>
