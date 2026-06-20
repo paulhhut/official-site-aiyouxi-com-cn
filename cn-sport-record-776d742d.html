@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>满冠体育 · 赛事数据与查询参考</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f1f3f5;
+            color: #2d3436;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 1024px;
+            width: 100%;
+        }
+
+        /* 主视觉卡片 —— 清新大标题 + 轻柔氛围 */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.8rem 2.2rem 2.2rem 2.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.2rem;
+            text-align: center;
+        }
+
+        .hero-card h1 {
+            font-size: 2.6rem;
+            font-weight: 350;
+            letter-spacing: -0.02em;
+            color: #1e272e;
+            margin-bottom: 0.4rem;
+        }
+
+        .hero-card .sub {
+            font-size: 1.05rem;
+            color: #636e72;
+            max-width: 540px;
+            margin: 0.6rem auto 1.4rem auto;
+            font-weight: 350;
+            border-top: 1px solid #e9ecef;
+            padding-top: 1.2rem;
+        }
+
+        .hero-card .sub a {
+            color: #2d3436;
+            text-decoration: none;
+            border-bottom: 1px dotted #b2bec3;
+            transition: border-color 0.2s;
+        }
+
+        .hero-card .sub a:hover {
+            border-bottom-color: #2d3436;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #f8f9fa;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #636e72;
+            border: 1px solid #e9ecef;
+            margin-top: 0.2rem;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem 1.6rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.02);
+            border: 1px solid #edf0f2;
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .card h2 {
+            font-size: 1.3rem;
+            font-weight: 420;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.75rem;
+            color: #1e272e;
+            border-left: 3px solid #b2bec3;
+            padding-left: 0.75rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #4a4f54;
+            margin-bottom: 0.6rem;
+        }
+
+        .card ul {
+            list-style: none;
+            margin: 0.6rem 0 0.2rem;
+        }
+
+        .card ul li {
+            font-size: 0.9rem;
+            color: #4a4f54;
+            padding: 0.2rem 0 0.2rem 1.2rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #b2bec3;
+            font-weight: 600;
+        }
+
+        .card .quiet-link {
+            display: inline-block;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            color: #636e72;
+            border-bottom: 1px solid #dfe6e9;
+            text-decoration: none;
+        }
+
+        .card .quiet-link:hover {
+            border-bottom-color: #2d3436;
+            color: #2d3436;
+        }
+
+        /* 引用段落卡片 (自然链接嵌入) */
+        .reference-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            border: 1px solid #edf0f2;
+            margin-bottom: 2.2rem;
+        }
+
+        .reference-card p {
+            font-size: 0.98rem;
+            color: #3d4348;
+            margin-bottom: 1rem;
+            max-width: 800px;
+        }
+
+        .reference-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .reference-card a {
+            color: #2d3436;
+            text-decoration: none;
+            border-bottom: 1px solid #c8d6e5;
+            transition: border-color 0.15s;
+        }
+
+        .reference-card a:hover {
+            border-bottom-color: #2d3436;
+        }
+
+        .ref-highlight {
+            background: #f6f8fa;
+            border-radius: 14px;
+            padding: 1rem 1.4rem;
+            margin: 1.2rem 0 0.6rem;
+            border-left: 3px solid #ced4da;
+        }
+
+        .ref-highlight strong {
+            font-weight: 480;
+            color: #1e272e;
+        }
+
+        /* 小提示 / 简约分隔 */
+        .footnote {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8b9196;
+            margin-top: 1.4rem;
+            border-top: 1px solid #e2e6e9;
+            padding-top: 1.6rem;
+        }
+
+        .footnote span {
+            background: #f8f9fa;
+            padding: 0.1rem 0.7rem;
+            border-radius: 30px;
+            border: 1px solid #e9ecef;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .hero-card {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+            .card-grid {
+                gap: 1.2rem;
+            }
+            .reference-card {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 主视觉 -->
+    <div class="hero-card">
+        <h1>满冠体育</h1>
+        <div class="sub">
+            赛事信息 · 对照阅读 · 日常查询
+        </div>
+        <div class="hero-tag">资讯参考 · 数据索引</div>
+    </div>
+
+    <!-- 用途卡片 + 人群卡片 网格 -->
+    <div class="card-grid">
+        <!-- 用途卡片 1：日常查询 -->
+        <div class="card">
+            <h2>日常查询</h2>
+            <p>无论是比分回顾、赛程对照，还是单项数据浏览，<a href="https://cn-sport-mg.com" style="color:#2d3436; border-bottom:1px solid #d0d7dd; text-decoration:none;">满冠体育</a> 提供简洁的查询界面，适合快速翻阅与信息比对。</p>
+            <ul>
+                <li>赛事日历与阶段一览</li>
+                <li>历史交锋与近期走势</li>
+                <li>队伍、选手基础数据</li>
+            </ul>
+        </div>
+
+        <!-- 用途卡片 2：延伸阅读 / 对照 -->
+        <div class="card">
+            <h2>对照与延伸</h2>
+            <p>从单项赛事到跨赛季统计，适合作为资料延伸的起点。页面结构偏重信息归类，便于逐项对照。</p>
+            <ul>
+                <li>多赛事并列浏览</li>
+                <li>基础指标横向参考</li>
+                <li>赛季阶段标记清晰</li>
+            </ul>
+        </div>
+
+        <!-- 适合人群 -->
+        <div class="card">
+            <h2>适合人群</h2>
+            <ul>
+                <li>关注赛事进程、希望快速定位信息的爱好者</li>
+                <li>需要浏览赛程与基础数据的轻度研究者</li>
+                <li>对体育资讯保持兴趣、倾向查阅而非推送的读者</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 + FAQ 摘要风格 -->
+    <div class="reference-card">
+        <p>在日常信息浏览中，很多人会同时打开多个页面进行对照。如果你正在查找赛事相关的基础信息，<a href="https://cn-sport-mg.com">满冠体育</a> 可以作为一个安静的参考标签页，放在一旁随时瞄一眼赛程或数据。它的页面偏向信息陈列，没有过多干扰元素，适合需要「自己翻看」而非被动接收的使用习惯。</p>
+
+        <div class="ref-highlight">
+            <strong>常见使用情景</strong><br>
+            · 打开赛事列表，对比不同组别的时间线<br>
+            · 查看近期胜负序列，形成自己的笔记<br>
+            · 在阅读新闻时，作为数据背景页对照
+        </div>
+
+        <p style="font-size:0.92rem; color:#636e72; margin-top:0.4rem;">
+            不需要注册或推送，打开即看。信息更新节奏根据赛事阶段自然推进，你可以按照自己的节奏浏览。
+        </p>
+    </div>
+
+    <!-- 一个简短 FAQ 摘要卡片 (融入自然段落) -->
+    <div class="reference-card" style="padding:1.6rem 2rem;">
+        <p style="font-weight:420; margin-bottom:0.5rem; color:#1e272e;">一些你可能留意到的特点</p>
+        <p style="margin-bottom:0.3rem;">页面以数据列表和赛程表为主，适合作为查询辅助。没有复杂交互，侧重信息呈现的清晰度。</p>
+        <p style="margin-bottom:0;">如果你习惯在阅读文章时保留一个数据对照窗口，<a href="https://cn-sport-mg.com">满冠体育</a> 可以放在侧边，不占太多注意力。</p>
+    </div>
+
+    <!-- 温和的脚注提示 -->
+    <div class="footnote">
+        <span>信息索引参考 · 基于公开赛事数据</span>
+    </div>
+
+</div>
+</body>
+</html>
